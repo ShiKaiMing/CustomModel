@@ -11,7 +11,7 @@
 @implementation ExampleCustomModel
 +(void)requestDataWithType:(NSInteger)type sucessBlock:(SucessBlock)sucessBlock failureBlock:(FailureBlock)failureBlock
 {
-        __block ExampleCustomModel * exampleCustomModel = [[ExampleCustomModel alloc]init];
+    __block ExampleCustomModel * exampleCustomModel = [[ExampleCustomModel alloc]init];
     if (type == 1) {
         NSDictionary *dic = [exampleCustomModel dictionaryForData];
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
@@ -53,6 +53,35 @@
                                   @{@"NAME":@"赵六",@"SEX":@"男",@"HOBBY":@"看人"},
                                   ];
     return array;
+}
+
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        
+        return nil;
+        
+    }
+    
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *err;
+    
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                         
+                                                        options:NSJSONReadingMutableContainers
+                         
+                                                          error:&err];
+    
+    if(err) {
+        
+        NSLog(@"json解析失败：%@",err);
+        
+        return nil;
+        
+    }
+    
+    return dic;
+    
 }
 - (NSString *)stringForData
 {

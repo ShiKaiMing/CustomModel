@@ -67,7 +67,7 @@ static DataModelManager *aManager;
         [modelArray addObjectsFromArray:[NSClassFromString(modelName) mj_objectArrayWithKeyValuesArray:dic[modelName]]];
     }
     
-    
+
     return modelArray;
 }
 

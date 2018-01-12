@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UISegmentedControl *segaMnetControl = [[UISegmentedControl alloc]initWithItems:@[@"最外层是字典",@"最外层是数组",@"是字符串"]];
+    UISegmentedControl *segaMnetControl = [[UISegmentedControl alloc]initWithItems:@[@"是字典",@"是数组",@"是字符串"]];
     segaMnetControl.frame = CGRectMake((WIDTH-280)/2, 120,280,32);
     segaMnetControl.tintColor = kRGBColor(16,123,214);
     [segaMnetControl addTarget:self action:@selector(SegmentControlChange:) forControlEvents:UIControlEventValueChanged];
